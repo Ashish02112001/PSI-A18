@@ -84,7 +84,7 @@ static class Start {
       tokenizer = new Tokenizer (prog1);
       for (; ; ) {
          var token = tokenizer.Next ();
-         if (token.Kind == Token.E.ERROR) { token.PrintError (); break; }
+         if (token.Kind == Token.E.ERROR) { token.PrintError (tokenizer); break; }
          if (token.Kind == Token.E.EOF) break;
       }
       Console.WriteLine ();
