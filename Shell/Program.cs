@@ -1,4 +1,5 @@
-﻿using PSI;
+﻿using Ops.Expr;
+using PSI;
 using PSI.Ops;
 using System.Diagnostics;
 
@@ -36,11 +37,13 @@ static class Start {
       Dictionary<string, NType> types = new () { ["pi"] = NType.Real, ["two"] = NType.Int };
       NType type = node.Accept (new ExprTyper (types));
       Console.WriteLine ($"Type = {type}");
-
       var graph = new ExprGrapher (expr);
       node.Accept (graph);
       Directory.CreateDirectory ("c:/etc");
       graph.SaveTo ("c:/etc/test.html");
+      ExprXML xml = new (types);
+      var newXml = node.Accept (xml);
+      xml.SaveAs ("c:/etc/test.xml",newXml);
       var pi = new ProcessStartInfo ("c:/etc/test.html") { UseShellExecute = true };
       Process.Start (pi);
       Console.Write ("\nPress any key..."); Console.ReadKey (true);
