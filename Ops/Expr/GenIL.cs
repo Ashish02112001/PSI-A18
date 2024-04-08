@@ -24,7 +24,7 @@ public class ExprILGen : Visitor<StringBuilder> {
    }
 
    public override StringBuilder Visit (NFnCall fnCall) {
-      throw new NotImplementedException ();
+      return mSB.AppendLine ($"{Label} call {fnCall.Name.Text}");
    }
 
    string Label => $"IL{++mID:D3}:";
