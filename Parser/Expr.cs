@@ -40,6 +40,16 @@ public class NIdentifier : NExpr {
    public override T Accept<T> (Visitor<T> visitor) => visitor.Visit (this);
 }
 
+public class NFnCall : NExpr {
+   public NFnCall (Token name, NExpr[] pars) {
+      Name = name;
+      Params = pars;
+   }
+   public Token Name { get; }
+   public NExpr[] Params { get; }
+   public override T Accept<T> (Visitor<T> visitor) => visitor.Visit (this);
+}
+
 // A number or string literal node
 public class NLiteral : NExpr {
    public NLiteral (Token value) => Value = value;
@@ -54,4 +64,5 @@ public abstract class Visitor<T> {
    public abstract T Visit (NIdentifier identifier);
    public abstract T Visit (NUnary unary);
    public abstract T Visit (NBinary binary);
+   public abstract T Visit (NFnCall fnCall);
 }
