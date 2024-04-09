@@ -4,10 +4,10 @@ using System.Diagnostics;
 
 static class Start {
    static void Main () {
-      //Test1 ();      // Test ExprEval and ExprILGen
-      //Test2 ();      // Test ExprTyper and ExprGrapher
-      //Test3 ();      // Type checks on various expressions
-      //Test4 ();      // Tokenizer - printout of invalid token
+      Test1 ();      // Test ExprEval and ExprILGen
+      Test2 ();      // Test ExprTyper and ExprGrapher
+      Test3 ();      // Type checks on various expressions
+      Test4 ();      // Tokenizer - printout of invalid token
       Test5 ();      // Parse function calls and ExprILGen
    }
 
