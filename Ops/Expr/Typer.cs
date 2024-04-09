@@ -37,4 +37,8 @@ public class ExprTyper : Visitor<NType> {
          _ => Error
       };
    }
+
+   public override NType Visit (NFnCall fnCall) {
+      throw new NotImplementedException ();
+   }
 }
