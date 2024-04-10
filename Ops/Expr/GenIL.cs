@@ -23,5 +23,9 @@ public class ExprILGen : Visitor<StringBuilder> {
       return mSB.AppendLine ($"{Label} {binary.Op.Kind.ToString ().ToLower ()}");
    }
 
+   public override StringBuilder Visit (NFnCall fnCall) {
+      return mSB.AppendLine ($"{Label} call {fnCall.Name.Text}");
+   }
+
    string Label => $"IL{++mID:D3}:";
 }
